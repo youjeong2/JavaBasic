@@ -2,10 +2,25 @@ package Sixth;
 
 class Bank2 {
     // Critical Section(크리티컬 섹션)
-    private int money = 10000;
+    private int money = 0;
 
     public int getMoney() {
         return money;
+    }
+
+    public synchronized void changeMoney(int money) {
+        for(int i = 0; i < 1000; i++) {
+            int m = this.getMoney();
+
+            try {
+                Thread.sleep(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            this.money = m + money;
+            System.out.println("현재금액(save): " + this.money);
+        }
     }
 
     // 3000 * 1000 = 300 0000
@@ -47,17 +62,19 @@ class Bank2 {
 class C extends Thread {
     public void run() {
         //
-        NoSyncTest.myPrivateBank.saveMoney(3000);
-        System.out.println("saveMoney(3000): " +
-                NoSyncTest.myPrivateBank.getMoney());
+//        NoSyncTest.myPrivateBank.saveMoney(1000);
+        SyncTest.myPrivateBank.changeMoney(1000);
+        System.out.println("saveMoney(1000): " +
+                SyncTest.myPrivateBank.getMoney());
     }
 }
 
 class D extends Thread {
     public void run() {
-        NoSyncTest.myPrivateBank.useMoney(1000);
+//        NoSyncTest.myPrivateBank.useMoney(1000);
+        SyncTest.myPrivateBank.changeMoney(-1000);
         System.out.println("useMoney(1000): " +
-                NoSyncTest.myPrivateBank.getMoney());
+                SyncTest.myPrivateBank.getMoney());
     }
 }
 
@@ -73,6 +90,15 @@ public class SyncTest {
 
         c.start();
         d.start();
+
+        try{
+            c.join();
+            d.join();
+        }catch (Exception e){
+
+        }
+
+        System.out.println("end money : " + SyncTest.myPrivateBank.getMoney());
     }
 }
 

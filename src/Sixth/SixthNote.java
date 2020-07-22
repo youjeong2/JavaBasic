@@ -11,11 +11,15 @@ public class SixthNote {
 // 5. SortTest
 
 // 6. ShuffleTest
-// 7.  BinarySearchTest
-// 8.  DBExceptionTest
-// 9.  ArrayExceptionTest
+// 7. BinarySearchTest
+// 8. DBExceptionTest
+// 9. ArrayExceptionTest
 // 10. InputExceptionTest
 
-//     FinallyTest
-//     ThrowExceptionTest
-//     ThreadTestApp
+// 11. FinallyTest
+// 12. ThrowExceptionTest
+// 13. ThreadTestApp
+
+// 14.  NoSyncTest
+// 15.  SyncTest
+// 16.  RealSync

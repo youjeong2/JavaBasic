@@ -26,6 +26,7 @@ public class ThrowExceptionTest {
         try {
             result = quo(1, 0);
             // 실제로 DBZException 객체가 생성
+            System.out.println("Done!!");
         } catch (DBZException e) {
             System.out.println(e.toString());
         }
@@ -34,13 +35,17 @@ public class ThrowExceptionTest {
     }
 }
 
+
+
+
+//
 //    class DEZException extends ArithmeticException{
 //        public DBZException() {
 //            super("0")
 //        }
 //    }
 //public class ThrowExceptionTest {
-//        // 아래 녀석을 서포트해줄 , throw
+//     // 아래 녀석을 서포트해줄 , throw
 //    //여기서 처리
 //    // 하우 나오게 하면 위로보내서 안나옴
 //    // throw를 사용하는 것은 예외처리를 수행할 수 있는

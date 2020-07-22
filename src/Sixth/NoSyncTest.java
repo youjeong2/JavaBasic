@@ -39,6 +39,9 @@ class Bank {
             System.out.println("현재금액(use): " + this.money);
         }
     }
+
+    public void changeMoney(int i) {
+    }
 }
 
 class A extends Thread {

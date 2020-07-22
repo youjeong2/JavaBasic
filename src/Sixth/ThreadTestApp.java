@@ -20,6 +20,7 @@ class Car implements Runnable {
             // 현재 스레드로 구동되는 객체를
             // 강제로 sleepTime만큼 sleep 시킨다.
             // 단위는 ms(0.001초) 단위에 해당한다.
+            System.out.println("name : " + name + ", time : " + sleepTime);
             Thread.sleep(sleepTime);
         } catch (InterruptedException e) {
 
